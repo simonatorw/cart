@@ -1,0 +1,9 @@
+<div class="product-container">
+  <span>
+    {{productInfo.desc}}
+    <label>Price:</label> ${{productInfo.price.toFixed(2)}}
+  </span>
+  <button class="add" (click)="addProduct(productInfo)">Add to Cart</button>
+</div>
+
+

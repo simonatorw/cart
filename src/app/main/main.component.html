@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<header class="main-header">
+  <h1>Store</h1>
+  <div class="mini-cart" (click)="goCart()" [routerLink]="['cart']" title="Checkout">{{cart$ | async}}</div>
+</header>
+<div class="products">
+  <product *ngFor="let product of products$ | async" [productInfo]="product"></product>
+  <div class="checkout">
+    <button (click)="goCart()" [routerLink]="['cart']" title="Checkout">Checkout</button>
+  </div>
+</div>
+
+

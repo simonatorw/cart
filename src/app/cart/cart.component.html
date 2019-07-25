@@ -1,0 +1,17 @@
+<header class="main-header">
+  <h1>Cart</h1>
+  <div><a [routerLink]="['']" class="link" title="Keep shopping">&lt; Back</a></div>
+</header>
+<div class="products">
+  <div *ngFor="let product of products$ | async">{{product.qty}} {{product.desc}}: {{(product.qty * (product.price + product.salesTax + product.importTax)).toFixed(2)}}</div>
+  <div class="totals" *ngIf="count$ | async">
+    <div><label>Sales Taxes:</label> {{(salesTaxes$ | async).toFixed(2)}}</div>
+    <div><label>Total:</label> {{(total$ | async).toFixed(2)}}</div>
+  </div>
+  <span *ngIf="!(count$ | async)">Cart is Empty</span>
+  <div class="checkout" *ngIf="count$ | async">
+    <button (click)="resetStore()" [routerLink]="['']">Complete Checkout</button>
+  </div>
+</div>
+
+
